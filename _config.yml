@@ -2,7 +2,7 @@
 #   Main Configs   #
 # ---------------- #
 baseurl:
-url: http://www.zhouxinye.com
+url: https://www.zhouxinye.com
 date_format: "ordinal"
 title: Satoshi
 subtitle: "学习记录"
