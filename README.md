@@ -1,3 +1,3 @@
 # Satoshi
 Satoshi'Blog
-Fork From [Zhuang Ma](https://github.com/mzlogin/mzlogin.github.io)
+使用项目来源 [Zhuang Ma](https://github.com/mzlogin/mzlogin.github.io)
