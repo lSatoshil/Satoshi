@@ -316,3 +316,179 @@ instanceof可以将对象与指定类型进行比较，可以用来测试对象�
 
 ### 位操作符和位移操作符
 操作符为 ~ << >> >>> & ^ &#124;
+
+## 控制语句
+### if-then-else 和 if-then 语句
+if-then语句只有在条件为true时，才会执行特定的代码段
+```
+void testIf() {
+    boolean testEvaluates = true;
+    if (testEvaluates){
+        System.out.println("testEvaluates is true");
+    }
+}
+```
+
+if-then-else语句，在条件为true时执行if后面的代码段，否则执行else后面的代码段
+```
+void testIfElse() {
+    boolean testEvaluates = true;
+    if (testEvaluates){
+        System.out.println("testEvaluates is true");
+    } else {
+      System.out.println("testEvaluates is not true");
+    }
+}
+```
+上面代码只是if-then-else的基本应用  
+该控制条件还可以像下面示例一样  
+下面代码在满足适合条件，就不会执行其他语句
+```
+class IfElseDemo {
+    public static void main(String[] args) {
+
+        int testscore = 76;
+        char grade;
+
+        if (testscore >= 90) {
+            grade = 'A';
+        } else if (testscore >= 80) {
+            grade = 'B';
+        } else if (testscore >= 70) {
+            grade = 'C';
+        } else if (testscore >= 60) {
+            grade = 'D';
+        } else {
+            grade = 'F';
+        }
+        System.out.println("Grade = " + grade);
+    }
+}
+```
+
+### switch
+switch语句目前支持byte、short、char、int、Enum Type、String、Character,、Byte、Short以及Integer  
+具体用法如下
+```
+public class SwitchDemo {
+    public static void main(String[] args) {
+
+        int month = 8;
+        String monthString;
+        switch (month) {
+            case 1:  monthString = "January";
+                     break;
+            case 2:  monthString = "February";
+                     break;
+            case 3:  monthString = "March";
+                     break;
+            case 4:  monthString = "April";
+                     break;
+            case 5:  monthString = "May";
+                     break;
+            case 6:  monthString = "June";
+                     break;
+            case 7:  monthString = "July";
+                     break;
+            case 8:  monthString = "August";
+                     break;
+            case 9:  monthString = "September";
+                     break;
+            case 10: monthString = "October";
+                     break;
+            case 11: monthString = "November";
+                     break;
+            case 12: monthString = "December";
+                     break;
+            default: monthString = "Invalid month";
+                     break;
+        }
+        System.out.println(monthString);
+    }
+}
+```
+最终输出
+```
+August
+```
+每个case后面都有一个break，这样可以在执行适合条件的语句块后跳出switch语句块，如果不加break，则在执行适合的语句块后一直执行语句
+
+### while 和 do-while
+while如下所示，当expression为true时会一直执行while代码块知道expression为false
+```
+while (expression) {
+     statement(s)
+}
+```
+do-while如下所示，他先执行代码块，在判断expression，为true继续执行代码块，知道expression为false
+```
+do {
+     statement(s)
+} while (expression);
+```
+他们两个区别在于，do-while至少会执行一次
+
+### for语句
+for语句现在有两种方式
+```
+//通常for循环
+for (initialization; termination;
+     increment) {
+    statement(s)
+}
+```
+```
+//增强型for循环
+for（元素类型  元素名称 : 遍历数组（集合）（或者能进行迭代的））{
+  statement(s)
+}
+```
+上述两种方式都可以实现for循环，推荐第二种实现方式
+```
+class ForDemo {
+    public static void main(String[] args){
+      int[] numbers = {1,2,3,4,5,6,7,8,9,10};
+      for(int i=1; i<numbers.length; i++){
+        System.out.println("Count is: " + numbers[i]);
+      }
+      for (int item : numbers) {
+        System.out.println("Count is: " + item);
+      }
+    }
+}
+```
+### 分支语句break和continue
+break跳出当前循环
+continue忽略本次循环，继续执行下一次循环
+标签，可以让break跳出循环到标签位置，结束迭代；continue跳过用给定标签标记的外部循环的当前迭代，开始下次迭代
+```
+class ContinueWithLabelDemo {
+    public static void main(String[] args) {
+
+        String searchMe = "Look for a substring in me";
+        String substring = "sub";
+        boolean foundIt = false;
+
+        int max = searchMe.length() -
+                  substring.length();
+
+    test:
+        for (int i = 0; i <= max; i++) {
+            int n = substring.length();
+            int j = i;
+            int k = 0;
+            while (n-- != 0) {
+                if (searchMe.charAt(j++) != substring.charAt(k++)) {
+                    continue test;
+                }
+            }
+            foundIt = true;
+                break test;
+        }
+        System.out.println(foundIt ? "Found it" : "Didn't find it");
+    }
+}
+```
+
+### return
+return 退出当前方法
