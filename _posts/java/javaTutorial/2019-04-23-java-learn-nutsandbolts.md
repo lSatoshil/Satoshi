@@ -122,4 +122,197 @@ public class ArrayCopyDemo {
 + 获取数组中特定值的位置binarySearch
 + 比较两个数组 equals
 + 用特定值填充数组 fill
-+ 按升序进行排序sort，Java SE 8以上可以使用parallelSort
++ 按升序进行排序sort，Java SE
+
+## 运算符
+**优先级（由高到低）**
+
+|运算符|优先度|
+|:---|:---|
+|postfix |	expr++ expr--|
+|unary |	++expr --expr +expr -expr ~ !|
+|multiplicative |	* / %|
+|additive |	+ -|
+|shift |	<< >> >>>|
+|relational |	< > <= >= instanceof|
+|equality |	== !=|
+|bitwise AND | & |
+|bitwise exclusive OR |	^ |
+|bitwise inclusive OR	| &#124; |
+|logical AND	| && |
+|logical OR |	&#124;&#124;|
+|ternary |	? :|
+|assignment |	= += -= *= /= %= &= ^= &#124;= <<= >>= >>>=|
+
+### 赋值、算术、一元运算
+赋值运算“=”:将右边的值赋值给左边
+```
+int i = 0;
+boolean b = false;
+```
+算术运算“+、-、&#42;、/、%”，用法如下所示
+```
+class ArithmeticDemo {
+
+    public static void main (String[] args) {
+
+        int result = 1 + 2;
+        // result is now 3
+        System.out.println("1 + 2 = " + result);
+        int original_result = result;
+
+        result = result - 1;
+        // result is now 2
+        System.out.println(original_result + " - 1 = " + result);
+        original_result = result;
+
+        result = result * 2;
+        // result is now 4
+        System.out.println(original_result + " * 2 = " + result);
+        original_result = result;
+
+        result = result / 2;
+        // result is now 2
+        System.out.println(original_result + " / 2 = " + result);
+        original_result = result;
+
+        result = result + 8;
+        // result is now 10
+        System.out.println(original_result + " + 8 = " + result);
+        original_result = result;
+
+        result = result % 7;
+        // result is now 3
+        System.out.println(original_result + " % 7 = " + result);
+    }
+}
+```
+
+'='其他用法: **和其他运算符结合**,比如上述代码可以改写成:  
+```
+class ArithmeticDemo {
+
+    public static void main (String[] args) {
+
+        int result = 1 + 2;
+        // result is now 3
+        System.out.println("1 + 2 = " + result);
+        int original_result = result;
+
+        result -= 1;
+        // result is now 2
+        System.out.println(original_result + " - 1 = " + result);
+        original_result = result;
+
+        result *= 2;
+        // result is now 4
+        System.out.println(original_result + " * 2 = " + result);
+        original_result = result;
+
+        result /= 2;
+        // result is now 2
+        System.out.println(original_result + " / 2 = " + result);
+        original_result = result;
+
+        result += 8;
+        // result is now 10
+        System.out.println(original_result + " + 8 = " + result);
+        original_result = result;
+
+        result %= 7;
+        // result is now 3
+        System.out.println(original_result + " % 7 = " + result);
+    }
+}
+```
+'+'其他用法: **拼接字符串**
+```
+class ConcatDemo {
+    public static void main(String[] args){
+        String firstString = "This is";
+        String secondString = " a concatenated string.";
+        String thirdString = firstString+secondString;
+        System.out.println(thirdString);
+    }
+}
+```
+输出结果为:
+```
+This is a concatenated string.
+```
+
+### 一元运算符
++ '+'一元加运算符，表示正值
++ '-'一元减运算符，对一个数值取反值
++ '++(--)'自增(减)运算符，讲一个数值加(减)1
++ '!'布尔值反转，和逻辑补运算
+
+```
+class UnaryDemo {
+
+    public static void main(String[] args) {
+
+        int result = +1;
+        // result is now 1
+        System.out.println(result);
+
+        result--;
+        // result is now 0
+        System.out.println(result);
+
+        result++;
+        // result is now 1
+        System.out.println(result);
+
+        result = -result;
+        // result is now -1
+        System.out.println(result);
+
+        boolean success = false;
+        // false
+        System.out.println(success);
+        // true
+        System.out.println(!success);
+    }
+}
+```
+**++x(--x)和x++(x--)的区别**  
+这两者的区别体现在复合表达式当中，++x(--x)先加(减)1,在参与运算；x++(x--)先参与运算，在改变值
+```
+class PrePostDemo {
+    public static void main(String[] args){
+        int i = 3;
+        i++;
+        // prints 4
+        System.out.println(i);
+        ++i;			   
+        // prints 5
+        System.out.println(i);
+        // prints 6
+        System.out.println(++i);
+        // prints 6
+        System.out.println(i++);
+        // prints 7
+        System.out.println(i);
+    }
+}
+```
+
+### 关系运算符
++ ==
++ !=
++ >
++ >=
++ <
++ <=
+
+### 条件运算符
++ &&，逻辑与，表示两边都为true才为true
++ ||，逻辑或，表示两边其中一个为true就为true
++ 布尔类型表达式 ? 表达式1 : 表达式2，布尔类型表达式为true去表达式1否则为2
+
+### 类型比较运算符 instanceof
+instanceof可以将对象与指定类型进行比较，可以用来测试对象是否为类或子类的实例，以及接口的实现类的实例
+
+### 位操作符和位移操作符
+操作符为 ~ << >> >>> & ^ |
